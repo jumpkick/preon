@@ -38,6 +38,8 @@ import nl.flotsam.pecia.*;
 import org.codehaus.preon.buffer.BitBuffer;
 import org.codehaus.preon.channel.BitChannel;
 import org.codehaus.preon.codec.*;
+import org.codehaus.preon.codec.RepeatingBitCounterCodecFactory;
+
 
 import java.io.IOException;
 import java.lang.reflect.AnnotatedElement;
@@ -111,6 +113,8 @@ public class DefaultCodecFactory implements CodecFactory {
         codecFactory.add(new BooleanCodecFactory());
         codecFactory.add(new EnumCodec.Factory());
 
+        codecFactory.add(new RepeatingBitCounterCodecFactory());
+        
         // Create an ObjectCodecFactory that delegates to the
         // CompoundCodecFactory for each of its members.
         ObjectCodecFactory objectCodecFactory = new ObjectCodecFactory(top,
